@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.prime.com.tr/ui">
+  <f:loadBundle basename="/Bundle" var="bundle"/>
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListCandidature0Title}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+        <h:form styleClass="jsfcrud_list_form">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <!-- Liste des noms des écoles. -->
+            Choisissez une des écoles :
+            <h:selectOneMenu value="#{candidature0Controller.titreEcole}"
+                             valueChangeListener="#{candidature0Controller.changementEcole}"
+                             onchange="submit()">
+                <f:selectItem itemLabel="#{bundle.ListCandidature0ChoixEcole1}" itemValue=""/>
+                <f:selectItems value="#{candidature0Controller.titresEcoles}"/>
+            </h:selectOneMenu>
+                                
+            <h:outputText escape="false" value="#{bundle.ListCandidature0Empty}" 
+                          rendered="#{candidature0Controller.items.rowCount == 0}"/>
+            <h:panelGroup rendered="#{candidature0Controller.items.rowCount > 0 and !( empty candidature0Controller.titreEcole)}">
+
+                <p:dataTable id="candidatures"
+                             value="#{candidature0Controller.items}" var="item" style="border:solid 1px"
+                             paginator="true" rows="2"
+                             paginatorTemplate="{FirstPageLink}{PreviousPageLink} {CurrentPageReport} {PageLinks} {NextPageLink}{LastPageLink} {RowsPerPageDropdown} "
+                             firstPageLinkLabel="Début" lastPageLinkLabel="Fin" previousPageLinkLabel="Précédent" nextPageLinkLabel="Suivant"
+                             sortAscMessage="Cliquer pour tri croissant" sortDescMessage="Cliquer pour tri décroissant"
+                            
+                             rowsPerPageTemplate="2,3,5,10,15,20,25,30,40,50">
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="&nbsp;"/>
+                        </f:facet>
+                        <h:commandLink action="#{candidature0Controller.prepareView}" value="#{bundle.ListCandidature0ViewLink}"/>
+
+                    </p:column>
+                    <p:column resizable="true">
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListCandidature0Title_id}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.id}"/>
+                    </p:column>
+<!--
+                    <p:column resizable="true">
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListCandidature0Title_codeEcole}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.codeEcole}"/>
+                    </p:column>
+                    <p:column resizable="true">
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListCandidature0Title_titreEcole}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.titreEcole}"/>
+                    </p:column>-->
+
+                    <p:column sortBy="#{item.nom}" resizable="true" filterBy="#{item.nom}" width="90">
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListCandidature0Title_nom} #{bundle.ListCandidature0Title_prenoms}"/>
+                        </f:facet>
+                        <b><h:outputText value="#{item.nom}"/></b>&nbsp;<h:outputText value="#{item.prenoms}"/>
+                    </p:column>
+<!--                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListCandidature0Title_prenoms}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.prenoms}"/>
+                    </p:column>-->
+                    <p:column sortBy="#{item.sexe}" resizable="true">
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListCandidature0Title_sexe}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.sexe}"/>
+                    </p:column>
+
+                    <p:column resizable="true">
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListCandidature0Title_dateNaissance}"
+                                          escape="false"/>
+                        </f:facet>
+                        <h:outputText value="#{item.dateNaissance}"/>
+                    </p:column>
+                    <p:column sortBy="#{item.nationalite}" resizable="true">
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListCandidature0Title_nationalite}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.nationalite}"/>
+                    </p:column>
+
+                    <p:column resizable="true">
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListCandidature0Title_fonction}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.fonction}"/>
+                    </p:column>
+
+                    <p:column sortBy="#{item.demandeAide}" resizable="true">
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListCandidature0Title_demandeAide}"
+                                          escape="false"
+                                          title="'o' si demande une aide pour vooyage ou/et séjour ; 'n' sinon"/>
+                        </f:facet>
+                        <h:outputText value="#{item.demandeAide}"/>
+                    </p:column>
+
+                    <p:column resizable="true">
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListCandidature0Title_diplomeAcquisNom}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.diplomeAcquisNom}"/>
+                    </p:column>
+
+<!--                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListCandidature0Title_cvPdf}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.cvPdf}"/>
+                    </p:column>-->
+
+                    <p:column resizable="true">
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListCandidature0Title_montantDemandeVoyage}"
+                                          escape="false"/>
+                        </f:facet>
+                        <h:outputText value="#{item.montantDemandeVoyage}"/>
+                    </p:column>
+                    <p:column resizable="true" >
+                        <f:facet name="header" >
+                            <h:outputText value="#{bundle.ListCandidature0Title_fraisInscriptionPeutPayer}"
+                                      title="Ce que le candidat peut payer pour ses frais d'inscripion"
+                                      escape="false"/>
+                        </f:facet>
+                        <h:outputText value="#{item.fraisInscriptionPeutPayer}"/>
+                    </p:column>
+
+                    <p:column resizable="true">
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListCandidature0Title_typeDemandeSejour}"
+                                          escape="false"
+                                          title="'o' si demande aide, 'p' si demande partielle" />
+                        </f:facet>
+                        <h:outputText value="#{item.typeDemandeSejour}"/>
+                    </p:column>
+                    <p:column resizable="true">
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListCandidature0Title_montantDejaEuPourSejour}"
+                                          escape="false"/>
+                        </f:facet>
+                        <h:outputText value="#{item.montantDejaEuPourSejour}"/>
+                    </p:column>
+
+                </p:dataTable>
+
+                <h:commandLink>
+                    Exportation Excel
+                    <p:dataExporter type="xls" target="candidatures" fileName="candidatures"/>
+                </h:commandLink>
+            </h:panelGroup>
+            <br />
+            <h:commandLink value="#{bundle.ListCandidature0IndexLink}" action="/index" immediate="true" />
+        </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

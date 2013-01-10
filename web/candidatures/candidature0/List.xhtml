@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:o="http://openfaces.org/"
+      xmlns:cimpa="http://cimpa.org">
+
+  <ui:composition template="/template.xhtml">
+    <ui:define name="title">
+      <h:outputText value="#{bundle.ListCandidature0Title}"></h:outputText>
+    </ui:define>
+    <ui:define name="body">
+      <h:form styleClass="jsfcrud_list_form">
+        <h:panelGroup id="messagePanel" layout="block">
+          <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+        </h:panelGroup>
+
+        <!-- Liste des noms des écoles. -->
+        <!-- Si on ajoute l'attribut immediate="true", changementEcole n'est pas appelée ; pourquoi ? -->
+        <h:outputText value="#{bundle.List_ChoisirEcole}"
+                      rendered="#{candidature0Controller.listeChoixEcoleVisible}"/>
+        <h:selectOneMenu id="choixEcole" converter="ecoleControllerConverter"
+                         value="#{candidature0Controller.ecole}"
+                         valueChangeListener="#{candidature0Controller.changementEcole}"
+                         onchange="submit()"
+                         rendered="#{candidature0Controller.listeChoixEcoleVisible}"
+                         >
+
+          <f:selectItem itemLabel="#{bundle.ListCandidature0ChoixEcole1}" itemValue=""/>
+
+          <f:selectItems value="#{candidature0Controller.ecoles}"
+                         var="ecole" itemValue="#{ecole}" itemLabel="#{ecole.codeEcole}: #{ecole.nomEn} - #{ecole.paysEn}"/>
+        </h:selectOneMenu>
+        <b><h:outputText value="#{candidature0Controller.ecole.codeEcole}: #{candidature0Controller.ecole.nomEn} - #{candidature0Controller.ecole.paysEn} "
+                         rendered="#{not candidature0Controller.listeChoixEcoleVisible}"/></b>
+        <h:commandButton value="#{bundle.List_Relire}" type ="submit"
+                         action="#{candidature0Controller.relire}"
+                         title="#{bundle.List_RelireTitle}"/>
+        <br/>
+
+
+        <h:outputText escape="false" value="#{bundle.ListCandidature0Empty}"
+                      rendered="#{(not empty candidature0Controller.ecole) and (candidature0Controller.items == null or candidature0Controller.items.rowCount == 0)}"/>
+        <h:panelGroup rendered="#{(candidature0Controller.items != null) and candidature0Controller.items.rowCount > 0}">
+          #{bundle.List_NbCandidat} #{candidature0Controller.items.rowCount} <br/>
+          <o:dataTable id="candidats"
+                       value="#{candidature0Controller.items}" var="item"
+                       border="0" cellpadding="2" cellspacing="0" rules="all"
+                       style="border:solid 1px"
+                       bodyOddRowStyle="background-color:#DDFFFF">
+
+            <f:facet name="above">
+              <o:dataTablePaginator/>
+            </f:facet>
+            <f:facet name="below">
+              <o:dataTablePaginator/>
+            </f:facet>
+
+            <o:column>
+              <f:facet name="header">
+                <h:outputText value="&nbsp;"/>
+              </f:facet>
+              <h:commandLink action="#{candidature0Controller.prepareView}"
+                             value="#{bundle.ListCandidature0ViewLink}"/>
+            </o:column>
+            <o:column id="id" sortingExpression="#{item.id}">
+              <f:facet name="header">
+                <h:outputText value="#{bundle.ListCandidature0Title_id}"/>
+              </f:facet>
+              <f:facet name="subHeader">
+                <o:inputTextFilter/>
+              </f:facet>
+
+              <h:outputText value="#{item.id}"/>
+            </o:column>
+            <o:column id="codeEcole">
+              <f:facet name="header">
+                <h:outputText escape="false" value="#{bundle.ListCandidature0Title_codeEcole}"/>
+              </f:facet>
+              <h:outputText value="#{item.ecole.codeEcole}"/>
+            </o:column>
+            <!--            <o:column>
+                          <f:facet name="header">
+                            <h:outputText value="#{bundle.ListCandidature0Title_titreEcole}"/>
+                          </f:facet>
+                          <h:outputText value="#{item.titreEcole}"/>
+                        </o:column>-->
+            <o:column id="nom" sortingExpression="#{item.nom}"
+                      sortingComparator="caseInsensitiveText">
+              <f:facet name="subHeader">
+                <o:inputTextFilter/>
+              </f:facet>
+              <f:facet name="header">
+                <h:outputText value="#{bundle.ListCandidature0Title_nom}"/>
+              </f:facet>
+              <h:outputText value="#{item.nom}"/>
+            </o:column>
+            <o:column>
+              <f:facet name="header">
+                <h:outputText value="#{bundle.ListCandidature0Title_prenoms}"/>
+              </f:facet>
+              <h:outputText value="#{item.prenoms}"/>
+            </o:column>
+            <o:column id="sexe" sortingExpression="#{item.sexe}">
+              <f:facet name="subHeader">
+
+                <o:inputTextFilter />
+              </f:facet>
+              <f:facet name="header">
+                <h:outputText value="#{bundle.ListCandidature0Title_sexe}"/>
+              </f:facet>
+              <h:outputText value="#{item.sexe}"/>
+            </o:column>
+            <o:column>
+              <f:facet name="header">
+                <h:outputText escape="false" 
+                              value="#{bundle.ListCandidature0Title_dateNaissance}"
+                              title="#{bundle.List_FormatDateNaissance}"/>
+              </f:facet>
+              <h:outputText value="#{item.dateNaissance}"/>
+            </o:column>
+            <o:column id="nationalite" sortingExpression="#{item.nationalite}"
+                      sortingComparator="caseInsensitiveText">
+              <f:facet name="subHeader">
+                <o:inputTextFilter/>
+              </f:facet>
+              <f:facet name="header">
+                <h:outputText value="#{bundle.ListCandidature0Title_nationalite}"/>
+              </f:facet>
+              <h:outputText value="#{item.nationalite}"/>
+            </o:column>
+            <o:column id="paysInstitution" sortingExpression="#{item.paysInstitution}"
+                      sortingComparator="caseInsensitiveText">
+              <f:facet name="subHeader">
+                <o:inputTextFilter/>
+              </f:facet>
+              <f:facet name="header">
+                <h:outputText escape="false" value="#{bundle.ListCandidature0Title_paysInstitution}"/>
+              </f:facet>
+              <h:outputText value="#{item.paysInstitution}"/>
+            </o:column>
+            <o:column>
+              <f:facet name="header">
+                <h:outputText value="#{bundle.ListCandidature0Title_fonction}"/>
+              </f:facet>
+              <h:outputText value="#{item.fonction}"/>
+            </o:column>
+            <o:column>
+              <f:facet name="header" id="diplome">
+                <h:outputText value="#{bundle.ListCandidature0Title_diplomeAcquisNom}"/>
+              </f:facet>
+              <h:outputText value="#{item.diplomeAcquisNom}"/>
+            </o:column>
+
+            <o:column id="demandeAide">
+              <f:facet name="subHeader">
+                <o:inputTextFilter expression="#{item.demandeAide == 'o' ? bundle.o : bundle.n}"/>
+              </f:facet>
+              <f:facet name="header">
+                <h:outputText escape="false" value="#{bundle.ListCandidature0Title_demandeAide}"
+                              title="#{bundle.List_DemandeAide}"/>
+              </f:facet>
+              <h:outputText value="#{item.demandeAide == 'o' ? bundle.o : bundle.n}"/>
+            </o:column>
+            <o:column sortingExpression="#{item.montantDemandeVoyage}">
+              <f:facet name="header">
+                <h:outputText escape="false" value="#{bundle.ListCandidature0Title_montantDemandeVoyage}"/>
+              </f:facet>
+              <h:outputText value="#{item.montantDemandeVoyage}"/>
+            </o:column>
+            <o:column sortingExpression="#{item.fraisInscriptionPeutPayer}">
+              <f:facet name="header">
+                <h:outputText escape="false" value="#{bundle.ListCandidature0Title_fraisInscriptionPeutPayer}"/>
+              </f:facet>
+              <h:outputText value="#{item.fraisInscriptionPeutPayer == 'Peut payer' ? bundle.peutPayer : item.fraisInscriptionPeutPayer}"/>
+            </o:column>
+            <o:column sortingExpression="#{item.typeDemandeSejour}">
+              <f:facet name="subHeader">
+                <o:inputTextFilter expression="#{item.typeDemandeSejour == 'o' ? bundle.o : item.typeDemandeSejour == 'n' ? bundle.n : bundle.p}"/>
+              </f:facet>
+              <f:facet name="header">
+                <h:outputText escape="false" 
+                              value="#{bundle.ListCandidature0Title_typeDemandeSejour}"
+                              title="#{bundle.List_TypeDemandeSejour}"/>
+              </f:facet>
+              <h:outputText value="#{item.typeDemandeSejour == 'o' ? bundle.o : item.typeDemandeSejour == 'n' ? bundle.n : bundle.p}"/>
+            </o:column>
+            <o:column>
+              <f:facet name="header">
+                <h:outputText escape="false" value="#{bundle.ListCandidature0Title_montantDejaEuPourSejour}"/>
+              </f:facet>
+              <h:outputText value="#{item.montantDejaEuPourSejour}"/>
+            </o:column>
+            <o:column>
+              <f:facet name="header">
+                <h:outputText escape="false" value="#{bundle.ListCandidature0Title_autresCandidatures}"/>
+              </f:facet>
+                <ui:repeat value="#{candidature0Controller.autresEcoles}"
+                           var="item">
+                  * #{item}<br/>
+                </ui:repeat>
+            </o:column>
+
+          </o:dataTable>
+
+          <h:commandLink value="#{bundle.tableur_messageExportation}"
+                         actionListener="#{candidature0Controller.exporterExcel3}" />
+          <br/>
+
+        </h:panelGroup>
+        <br />
+        <h:commandLink value="#{bundle.ListCandidature0IndexLink}" action="/index" immediate="true" />
+      </h:form>
+    </ui:define>
+  </ui:composition>
+
+</html>

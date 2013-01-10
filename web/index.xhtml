@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+    <h:head>
+        <title>#{bundle.Title0}</title>
+        <h:outputStylesheet name="css/jsfcrud.css"/>
+    </h:head>
+    <h:body>
+        #{bundle.Title0}
+        <h:form>
+            <ui:remove>
+                <h:commandLink action="/candidatures/candidature0/List" value="#{bundle.menu0_voircandidatures}"/>
+            </ui:remove>
+            <h:link  outcome="/candidatures/candidature0/List" value="#{bundle.menu0_voircandidatures}"/>
+            <p/>
+            <h:link  outcome="/personne/List" value="#{bundle.menu0_gererpersonnes}" rendered="#{personneController.userIsAdmin}"/>
+            <p/>
+            <h:commandButton id="logOut" action="#{candidature0Controller.logout}" value="Sortir de la session" /> 
+        </h:form>
+        <ui:remove>
+            <h:form>
+                <h:commandLink action="/ecoles/ecole/List" value="Show All Ecole Items"/>
+            </h:form>
+            <h:form>
+                <h:commandLink action="/ecoles/ecole/List_openfaces" value="Toutes les écoles avec openfaces"/>
+            </h:form>
+            <h:form>
+                <h:commandLink action="/candidatures/ecoles/ecole/List" value="Show All Ecole Items"/>
+            </h:form>
+            <h:form>
+                <h:commandLink action="/candidatures/ecole/List" value="Show All Ecole Items"/>
+            </h:form>
+            <h:form>
+                <h:commandLink action="/candidatures/personne/List" value="Show All Personne Items"/>
+            </h:form>
+        </ui:remove>
+    </h:body>
+
+
+
+
+
+</html>
+

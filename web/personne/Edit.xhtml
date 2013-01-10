@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:o="http://openfaces.org/">
+
+  <ui:composition template="/template.xhtml">
+    <ui:define name="title">
+      <h:outputText value="#{bundle.EditPersonneTitle}"></h:outputText>
+    </ui:define>
+    <ui:define name="body">
+      <h:panelGroup id="messagePanel" layout="block">
+        <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+      </h:panelGroup>
+      <h:form>
+        <h:panelGrid columns="2">
+          <h:outputLabel value="#{bundle.EditPersonneLabel_id}" for="id" />
+          <h:inputText id="id" value="#{personneController.selected.id}" title="#{bundle.EditPersonneTitle_id}" required="true" requiredMessage="#{bundle.EditPersonneRequiredMessage_id}"/>
+          <h:outputLabel value="#{bundle.EditPersonneLabel_login}" for="login" />
+          <h:inputText id="login" value="#{personneController.selected.login}" title="#{bundle.EditPersonneTitle_login}" required="true" requiredMessage="#{bundle.EditPersonneRequiredMessage_login}"/>
+
+          <ui:remove> Pas possible de modifier le mot de passe ici.</ui:remove>
+          <h:outputLabel value="#{bundle.EditPersonneLabel_motDePasse}" for="motDePasse" />
+          <h:inputText id="motDePasse" value="#{personneController.selected.motDePasse}"
+                       title="#{bundle.EditPersonneTitle_motDePasse}"
+                       valueChangeListener="#{personneController.motDePasseChange}"/>
+
+          <h:outputLabel value="#{bundle.EditPersonneLabel_nom}" for="nom" />
+          <h:inputText id="nom" value="#{personneController.selected.nom}" title="#{bundle.EditPersonneTitle_nom}" required="false" requiredMessage="#{bundle.EditPersonneRequiredMessage_nom}"/>
+          <h:outputLabel value="#{bundle.EditPersonneLabel_prenoms}" for="prenoms" />
+          <h:inputText id="prenoms" value="#{personneController.selected.prenoms}" title="#{bundle.EditPersonneTitle_prenoms}" required="false" requiredMessage="#{bundle.EditPersonneRequiredMessage_prenoms}"/>
+        </h:panelGrid>
+
+        <!-- Rôle de la personne. Faire afficher une liste avec possibilité d'un choix qui n'est pas dans la liste.
+        Dans la liste : admin, rsr, responsable_ecole ****-->
+
+        <!-- Pour choisir les écoles visibles par la personne. -->
+        <!-- *** Il faut enlever les écoles qui ne sont plus consultables *** -->
+        <!-- Attention, on n'a ici qu'un bout de l'association ; il faudrait
+             aussi mettre à jour l'autre bout, du côté des écoles,
+             puisque l'association est bidirectionnelle !!-->
+        <o:twoListSelection id="listeEcoles" value="#{personneController.selected.ecolesConsultables}"
+                            leftListboxHeader="Ecoles non consultables par cette personne"
+                            rightListboxHeader="Ecoles consultables par cette personne"
+                            sortingAllowed="true" converter="ecoleControllerConverter"
+                            size="10" listStyle="width:500px">
+          <f:selectItems value="#{ecoleController.allEcolesConsultables2}"/>
+        </o:twoListSelection>
+
+        <h:commandLink action="#{personneController.update}" value="#{bundle.EditPersonneSaveLink}"/>
+        <br />
+        <br />
+        <ui:remove>
+            Plus besoin...
+        <h:commandLink action="Edit_motdepasse" value="#{bundle.EditPersonneMotDePasseLink}" immediate="true"/>
+        <br />
+        <br />
+        </ui:remove>
+        <h:commandLink action="View" value="#{bundle.EditPersonneViewLink}" immediate="true"/>
+        <br />
+        <h:commandLink action="#{personneController.prepareList}" value="#{bundle.EditPersonneShowAllLink}" immediate="true"/>
+        <br />
+        <br />
+        <h:commandLink value="#{bundle.EditPersonneIndexLink}" action="/index" immediate="true" />
+      </h:form>
+    </ui:define>
+  </ui:composition>
+
+</html>

@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+  <ui:composition template="/template.xhtml">
+    <ui:define name="title">
+      <h:outputText value="#{bundle.ViewCandidature0Title}"></h:outputText>
+    </ui:define>
+    <ui:define name="body">
+      <h:panelGroup id="messagePanel" layout="block">
+        <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+      </h:panelGroup>
+      <h:form>
+        <h:panelGrid columns="2">
+          <h:outputText value="#{bundle.ViewCandidature0Label_id}"/>
+          <h:outputText value="#{candidature0Controller.selected.id}" title="#{bundle.ViewCandidature0Title_id}"/>
+          <h:outputText value="#{bundle.ViewCandidature0Label_codeEcole}"/>
+          <h:outputText value="#{candidature0Controller.selected.ecole.codeEcole}" title="#{bundle.ViewCandidature0Title_codeEcole}"/>
+          <h:outputText value="#{bundle.ViewCandidature0Label_titreEcole}"/>
+          <h:outputText value="#{candidature0Controller.selected.titreEcole}" title="#{bundle.ViewCandidature0Title_titreEcole}"/>
+          <h:outputText value="#{bundle.ViewCandidature0Label_nom}"/>
+          <h:outputText value="#{candidature0Controller.selected.nom}" title="#{bundle.ViewCandidature0Title_nom}"/>
+          <h:outputText value="#{bundle.ViewCandidature0Label_prenoms}"/>
+          <h:outputText value="#{candidature0Controller.selected.prenoms}" title="#{bundle.ViewCandidature0Title_prenoms}"/>
+          <h:outputText value="#{bundle.ViewCandidature0Label_sexe}"/>
+          <h:outputText value="#{candidature0Controller.selected.sexe}" title="#{bundle.ViewCandidature0Title_sexe}"/>
+          <h:outputText value="#{bundle.ViewCandidature0Label_email}"/>
+          <h:outputText value="#{candidature0Controller.selected.email}" title="#{bundle.ViewCandidature0Title_email}"/>
+          <h:outputText value="#{bundle.ViewCandidature0Label_dateNaissance}"/>
+          <h:outputText value="#{candidature0Controller.selected.dateNaissance}" title="#{bundle.ViewCandidature0Title_dateNaissance}"/>
+          <h:outputText value="#{bundle.ViewCandidature0Label_nationalite}"/>
+          <h:outputText value="#{candidature0Controller.selected.nationalite}" title="#{bundle.ViewCandidature0Title_nationalite}"/>
+          <h:outputText value="#{bundle.ViewCandidature0Label_langue}"/>
+          <h:outputText value="#{candidature0Controller.selected.langue}" title="#{bundle.ViewCandidature0Title_langue}"/>
+          <h:outputText value="#{bundle.ViewCandidature0Label_fonction}"/>
+          <h:outputText value="#{candidature0Controller.selected.fonction}" title="#{bundle.ViewCandidature0Title_fonction}"/>
+          <h:outputText value="#{bundle.ViewCandidature0Label_domaineRecherche}"/>
+          <h:outputText value="#{candidature0Controller.selected.domaineRecherche}" title="#{bundle.ViewCandidature0Title_domaineRecherche}"/>
+
+          <h:outputText value="#{bundle.ViewCandidature0Label_publications}"/>
+          <h:inputTextarea value="#{candidature0Controller.selected.publications}" title="#{bundle.ViewCandidature0Title_publications}"
+                           cols="80" rows="5" readonly="true"/>
+
+          <h:outputText value="#{bundle.ViewCandidature0Label_adresseInstitution}"/>
+          <h:inputTextarea value="#{candidature0Controller.selected.adresseInstitution}"
+                           title="#{bundle.ViewCandidature0Title_adresseInstitution}"
+                           cols="80" rows="5" readonly="true"/>
+          <h:outputText value="#{bundle.ViewCandidature0Label_paysInstitution}"/>
+          <h:outputText value="#{candidature0Controller.selected.paysInstitution}" title="#{bundle.ViewCandidature0Title_paysInstitution}"/>
+
+          <h:outputText value="#{bundle.ViewCandidature0Label_telInstitution}"/>
+          <h:outputText value="#{candidature0Controller.selected.telInstitution}" title="#{bundle.ViewCandidature0Title_telInstitution}"/>
+          <h:outputText value="#{bundle.ViewCandidature0Label_participationsAnciennes}"/>
+          <h:outputText value="#{candidature0Controller.selected.participationsAnciennes}" title="#{bundle.ViewCandidature0Title_participationsAnciennes}"/>
+          <h:outputText value="#{bundle.ViewCandidature0Label_demandeAide}"/>
+          <h:outputText value="#{candidature0Controller.selected.demandeAide == 'o' ? bundle.o : bundle.n}"  title="#{bundle.ViewCandidature0Title_demandeAide}"/>
+
+          <h:outputText value="#{bundle.ViewCandidature0Label_adressePerso}"/>
+          <h:inputTextarea value="#{candidature0Controller.selected.adressePerso}"
+                           title="#{bundle.ViewCandidature0Title_adressePerso}"
+                           cols="80" rows="5" readonly="true"/>
+
+          <h:outputText value="#{bundle.ViewCandidature0Label_telPerso}"/>
+          <h:outputText value="#{candidature0Controller.selected.telPerso}" title="#{bundle.ViewCandidature0Title_telPerso}"/>
+          <h:outputText value="#{bundle.ViewCandidature0Label_adresseCourrierPreferee}"/>
+          <h:outputText value="#{candidature0Controller.selected.adresseCourrierPreferee}" title="#{bundle.ViewCandidature0Title_adresseCourrierPreferee}"/>
+          <h:outputText value="#{bundle.ViewCandidature0Label_diplomeAcquisNom}"/>
+          <h:outputText value="#{candidature0Controller.selected.diplomeAcquisNom}" title="#{bundle.ViewCandidature0Title_diplomeAcquisNom}"/>
+          <h:outputText value="#{bundle.ViewCandidature0Label_diplomeAcquisDate}"/>
+          <h:outputText value="#{candidature0Controller.selected.diplomeAcquisDate}" title="#{bundle.ViewCandidature0Title_diplomeAcquisDate}"/>
+          <h:outputText value="#{bundle.ViewCandidature0Label_diplomeAcquisUniversite}"/>
+          <h:outputText value="#{candidature0Controller.selected.diplomeAcquisUniversite}" title="#{bundle.ViewCandidature0Title_diplomeAcquisUniversite}"/>
+          <h:outputText value="#{bundle.ViewCandidature0Label_diplomePrepareNom}"/>
+          <h:outputText value="#{candidature0Controller.selected.diplomePrepareNom}" title="#{bundle.ViewCandidature0Title_diplomePrepareNom}"/>
+          <h:outputText value="#{bundle.ViewCandidature0Label_diplomePrepareUniversite}"/>
+          <h:outputText value="#{candidature0Controller.selected.diplomePrepareUniversite}" title="#{bundle.ViewCandidature0Title_diplomePrepareUniversite}"/>
+
+          <h:outputText value="#{bundle.ViewCandidature0Label_lettreMotivation}"/>
+          <h:inputTextarea value="#{candidature0Controller.selected.lettreMotivation}" title="#{bundle.ViewCandidature0Title_lettreMotivation}"
+                           cols="80" rows="8" readonly="true"/>
+
+          <h:outputText value="#{bundle.ViewCandidature0Label_cv}"/>
+          <h:inputTextarea value="#{candidature0Controller.selected.cv}" title="#{bundle.ViewCandidature0Title_cv}"
+                           cols="80" rows="15" readonly="true" rendered="#{not empty candidature0Controller.selected.cv}"/>
+
+          <h:commandLink rendered="#{empty candidature0Controller.selected.cv}"
+                         value="#{bundle.ViewCandidature0Title_cvPdf}"
+                         actionListener="#{candidature0Controller.voirCv}"
+                         immediate="true"
+                         />
+
+          <h:outputText value="#{bundle.ViewCandidature0Label_lettresRecommandation}"
+                        rendered="#{not empty candidature0Controller.selected.lettresRecommandation}"/>
+          <h:inputTextarea value="#{candidature0Controller.selected.lettresRecommandation}"
+                           title="#{bundle.ViewCandidature0Title_lettresRecommandation}"
+                           cols="80" rows="8" readonly="true"
+                           rendered="#{not empty candidature0Controller.selected.lettresRecommandation}"/>
+
+          <h:outputText value="#{bundle.ViewCandidature0Label_lettresRecommandationPdf}"
+                        rendered="#{not empty candidature0Controller.selected.lettresRecommandationPdf}"/>
+          <h:commandLink rendered="#{not empty candidature0Controller.selected.lettresRecommandationPdf}"
+                         value="#{bundle.ViewCandidature0Title_lettresRecommandationPdf}"
+                         actionListener="#{candidature0Controller.voirLettresRecommandation}"
+                         immediate="true" />
+
+        </h:panelGrid>
+
+        <b>#{bundle.ViewCandidature0Label_demandesParCandidat}</b>
+
+        <h:panelGrid columns="2">
+
+          <h:outputText value="#{bundle.ViewCandidature0Label_montantVoyageEstime}"/>
+          <h:outputText value="#{candidature0Controller.selected.montantVoyageEstime}" title="#{bundle.ViewCandidature0Title_montantVoyageEstime}"/>
+          <h:outputText value="#{bundle.ViewCandidature0Label_montantDemandeVoyage}"/>
+          <h:outputText value="#{candidature0Controller.selected.montantDemandeVoyage}" title="#{bundle.ViewCandidature0Title_montantDemandeVoyage}"/>
+
+          <h:outputText value="#{bundle.ViewCandidature0Label_fraisInscriptionPeutPayer}"/>
+
+          <h:outputText value="#{candidature0Controller.selected.fraisInscriptionPeutPayer == 'Peut payer' ? bundle.View_peutPayer : candidature0Controller.selected.fraisInscriptionPeutPayer}"
+                        title="#{bundle.ViewCandidature0Title_fraisInscriptionPeutPayer}"/>
+          
+          <h:outputText value="#{bundle.ViewCandidature0Label_raisonDemandeExemption}"
+                        rendered="#{not empty candidature0Controller.selected.raisonDemandeExemption}"/>
+          <h:inputTextarea value="#{candidature0Controller.selected.raisonDemandeExemption}" title="#{bundle.ViewCandidature0Title_raisonDemandeExemption}"
+                           cols="80" rows="3" readonly="true"
+                           rendered="#{not empty candidature0Controller.selected.raisonDemandeExemption}"/>
+
+          <h:outputText value="#{bundle.ViewCandidature0Label_typeDemandeSejour}"/>
+          <h:outputText value="#{candidature0Controller.selected.typeDemandeSejour == 'o' ? bundle.o : candidature0Controller.selected.typeDemandeSejour == 'n' ? bundle.n : bundle.p}"
+                        title="#{bundle.ViewCandidature0Title_typeDemandeSejour}"/>
+
+          <h:outputText value="#{bundle.ViewCandidature0Label_montantDejaEuPourSejour}"/>
+          <h:outputText value="#{candidature0Controller.selected.montantDejaEuPourSejour}" title="#{bundle.ViewCandidature0Title_montantDejaEuPourSejour}"/>
+
+        </h:panelGrid>
+        <b>#{bundle.ViewCandidature0Label_financementAutre}</b>
+
+        <h:panelGrid columns="2">
+          <h:outputText value="#{bundle.ViewCandidature0Label_financementExterieurDemande}"/>
+          <h:outputText value="#{candidature0Controller.selected.financementExterieurDemande}" title="#{bundle.ViewCandidature0Title_financementExterieurDemande}"/>
+          <h:outputText value="#{bundle.ViewCandidature0Label_financementExterieurEu}"/>
+          <h:outputText value="#{candidature0Controller.selected.financementExterieurEu}" title="#{bundle.ViewCandidature0Title_financementExterieurEu}"/>
+          <h:outputText value="#{bundle.ViewCandidature0Label_descFinancementExterieur}"/>
+          <h:outputText value="#{candidature0Controller.selected.descFinancementExterieur}" title="#{bundle.ViewCandidature0Title_descFinancementExterieur}"/>
+          <h:outputText value="#{bundle.ViewCandidature0Label_financExtVoyageMontant}"/>
+          <h:outputText value="#{candidature0Controller.selected.financExtVoyageMontant}" title="#{bundle.ViewCandidature0Title_financExtVoyageMontant}"/>
+          <h:outputText value="#{bundle.ViewCandidature0Label_financExtVoyagePar}"/>
+          <h:outputText value="#{candidature0Controller.selected.financExtVoyagePar}" title="#{bundle.ViewCandidature0Title_financExtVoyagePar}"/>
+
+          <h:outputText value="#{bundle.ViewCandidature0Label_financExtVoyageEu}"/>
+          <h:outputText value="#{candidature0Controller.selected.financExtVoyageEu == 'o' ? bundle.o : bundle.n}" title="#{bundle.ViewCandidature0Title_financExtVoyageEu}"/>
+
+          <h:outputText value="#{bundle.ViewCandidature0Label_financExtSejourMontant}"/>
+          <h:outputText value="#{candidature0Controller.selected.financExtSejourMontant}" title="#{bundle.ViewCandidature0Title_financExtSejourMontant}"/>
+          <h:outputText value="#{bundle.ViewCandidature0Label_financExtSejourPar}"/>
+          <h:outputText value="#{candidature0Controller.selected.financExtSejourPar}" title="#{bundle.ViewCandidature0Title_financExtSejourPar}"/>
+
+          <h:outputText value="#{bundle.ViewCandidature0Label_financExtSejourEu}"/>
+          <h:outputText value="#{candidature0Controller.selected.financExtSejourEu == 'o' ? bundle.o : bundle.n}" title="#{bundle.ViewCandidature0Title_financExtSejourEu}"/>
+
+          <h:outputText value="#{bundle.ViewCandidature0Label_financExtInscripMontant}"/>
+          <h:outputText value="#{candidature0Controller.selected.financExtInscripMontant}" title="#{bundle.ViewCandidature0Title_financExtInscripMontant}"/>
+          <h:outputText value="#{bundle.ViewCandidature0Label_financExtInscripPar}"/>
+          <h:outputText value="#{candidature0Controller.selected.financExtInscripPar}" title="#{bundle.ViewCandidature0Title_financExtInscripPar}"/>
+
+          <h:outputText value="#{bundle.ViewCandidature0Label_financExtInscripEu}"/>
+          <h:outputText value="#{candidature0Controller.selected.financExtInscripEu == 'o' ? bundle.o : bundle.n}" title="#{bundle.ViewCandidature0Title_financExtInscripEu}"/>
+
+          <h:outputText value="#{bundle.ViewCandidature0Label_justificatifsAutresDemandes}"/>
+          <h:outputText value="#{candidature0Controller.selected.justificatifsAutresDemandes}" title="#{bundle.ViewCandidature0Title_justificatifsAutresDemandes}"/>
+          
+          <h:outputText value="#{bundle.ViewCandidature0Label_autresCandidatures}" title="#{bundle.ViewCandidature0Title_autresCandidatures}"/>
+          <h:panelGroup>
+            <ui:repeat value="#{candidature0Controller.autresEcoles}"
+                           var="item">
+              <h:outputText value="* #{item}" title="#{bundle.ViewCandidature0Title_autresCandidatures}"/><br/>
+            </ui:repeat>
+          
+          </h:panelGroup>
+
+
+          <ui:remove>
+            <!-- Décisions du CIMPA sur la sélection et l'aide à apporter au candidat : -->
+            <h:outputText value="#{bundle.ViewCandidature0Label_selectionne}"/>
+            <h:outputText value="#{candidature0Controller.selected.selectionne}" title="#{bundle.ViewCandidature0Title_selectionne}"/>
+            <h:outputText value="#{bundle.ViewCandidature0Label_typePriseEnChargeSejour}"/>
+            <h:outputText value="#{candidature0Controller.selected.typePriseEnChargeSejour}" title="#{bundle.ViewCandidature0Title_typePriseEnChargeSejour}"/>
+            <h:outputText value="#{bundle.ViewCandidature0Label_montantSejourParCandidat}"/>
+            <h:outputText value="#{candidature0Controller.selected.montantSejourParCandidat}" title="#{bundle.ViewCandidature0Title_montantSejourParCandidat}"/>
+            <h:outputText value="#{bundle.ViewCandidature0Label_typeDispenseFraisInscrip}"/>
+            <h:outputText value="#{candidature0Controller.selected.typeDispenseFraisInscrip}" title="#{bundle.ViewCandidature0Title_typeDispenseFraisInscrip}"/>
+            <h:outputText value="#{bundle.ViewCandidature0Label_montantFraisInscripAPayer}"/>
+            <h:outputText value="#{candidature0Controller.selected.montantFraisInscripAPayer}" title="#{bundle.ViewCandidature0Title_montantFraisInscripAPayer}"/>
+            <h:outputText value="#{bundle.ViewCandidature0Label_montantAideVoyage}"/>
+            <h:outputText value="#{candidature0Controller.selected.montantAideVoyage}" title="#{bundle.ViewCandidature0Title_montantAideVoyage}"/>
+
+            <h:outputText value="#{bundle.ViewCandidature0Label_confirmation}"/>
+            <h:outputText value="#{candidature0Controller.selected.confirmation}" title="#{bundle.ViewCandidature0Title_confirmation}"/>
+            <h:outputText value="#{bundle.ViewCandidature0Label_dateArrivee}"/>
+            <h:outputText value="#{candidature0Controller.selected.dateArrivee}" title="#{bundle.ViewCandidature0Title_dateArrivee}">
+              <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+            </h:outputText>
+            <h:outputText value="#{bundle.ViewCandidature0Label_dateDepart}"/>
+            <h:outputText value="#{candidature0Controller.selected.dateDepart}" title="#{bundle.ViewCandidature0Title_dateDepart}">
+              <f:convertDateTime pattern="MM/dd/yyyy" />
+            </h:outputText>
+            <h:outputText value="#{bundle.ViewCandidature0Label_remarques}"/>
+            <h:outputText value="#{candidature0Controller.selected.remarques}" title="#{bundle.ViewCandidature0Title_remarques}"/>
+              </ui:remove>
+            <h:outputText value="#{bundle.ViewCandidature0Label_dateCreation}"/>
+            <h:outputText value="#{candidature0Controller.selected.dateCreation}" title="#{bundle.ViewCandidature0Title_dateCreation}">
+              <f:convertDateTime type="both" />
+            </h:outputText>
+            <h:outputText value="#{bundle.ViewCandidature0Label_dateModification}"/>
+            <h:outputText value="#{candidature0Controller.selected.dateModification}" title="#{bundle.ViewCandidature0Title_dateModification}">
+              <f:convertDateTime type="both"/>
+            </h:outputText>
+            <ui:remove>
+              <h:outputText value="#{bundle.ViewCandidature0Label_operateurModif}"/>
+              <h:outputText value="#{candidature0Controller.selected.operateurModif}"
+                          title="#{bundle.ViewCandidature0Title_operateurModif}"/>
+            </ui:remove>
+
+        </h:panelGrid>
+        <br />
+        <ui:remove>
+        <h:commandLink action="#{candidature0Controller.refreshCandidature(candidature0Controller.selected)}"
+                       value="#{bundle.ViewRelireCandidature}"/>
+        <br /><br />
+        </ui:remove>
+        <h:commandLink action="#{candidature0Controller.prepareList}"
+                       value="#{bundle.ViewCandidature0ShowAllLink}"/>
+        <br />
+        <br />
+        <h:commandLink value="#{bundle.ViewCandidature0IndexLink}" action="/index" immediate="true" />
+
+      </h:form>
+    </ui:define>
+  </ui:composition>
+
+</html>

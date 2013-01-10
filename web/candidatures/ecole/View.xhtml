@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewEcoleTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewEcoleLabel_codeEcole}"/>
+                    <h:outputText value="#{ecoleController.selected.codeEcole}" title="#{bundle.ViewEcoleTitle_codeEcole}"/>
+                    <h:outputText value="#{bundle.ViewEcoleLabel_nomFr}"/>
+                    <h:outputText value="#{ecoleController.selected.nomFr}" title="#{bundle.ViewEcoleTitle_nomFr}"/>
+                    <h:outputText value="#{bundle.ViewEcoleLabel_nomFrAbrege}"/>
+                    <h:outputText value="#{ecoleController.selected.nomFrAbrege}" title="#{bundle.ViewEcoleTitle_nomFrAbrege}"/>
+                    <h:outputText value="#{bundle.ViewEcoleLabel_nomEn}"/>
+                    <h:outputText value="#{ecoleController.selected.nomEn}" title="#{bundle.ViewEcoleTitle_nomEn}"/>
+                    <h:outputText value="#{bundle.ViewEcoleLabel_nomEnAbrege}"/>
+                    <h:outputText value="#{ecoleController.selected.nomEnAbrege}" title="#{bundle.ViewEcoleTitle_nomEnAbrege}"/>
+                    <h:outputText value="#{bundle.ViewEcoleLabel_anCimpa}"/>
+                    <h:outputText value="#{ecoleController.selected.anCimpa}" title="#{bundle.ViewEcoleTitle_anCimpa}"/>
+                    <h:outputText value="#{bundle.ViewEcoleLabel_paysFr}"/>
+                    <h:outputText value="#{ecoleController.selected.paysFr}" title="#{bundle.ViewEcoleTitle_paysFr}"/>
+                    <h:outputText value="#{bundle.ViewEcoleLabel_paysEn}"/>
+                    <h:outputText value="#{ecoleController.selected.paysEn}" title="#{bundle.ViewEcoleTitle_paysEn}"/>
+                    <h:outputText value="#{bundle.ViewEcoleLabel_regionFr}"/>
+                    <h:outputText value="#{ecoleController.selected.regionFr}" title="#{bundle.ViewEcoleTitle_regionFr}"/>
+                    <h:outputText value="#{bundle.ViewEcoleLabel_regionEn}"/>
+                    <h:outputText value="#{ecoleController.selected.regionEn}" title="#{bundle.ViewEcoleTitle_regionEn}"/>
+                    <h:outputText value="#{bundle.ViewEcoleLabel_themeFr}"/>
+                    <h:outputText value="#{ecoleController.selected.themeFr}" title="#{bundle.ViewEcoleTitle_themeFr}"/>
+                    <h:outputText value="#{bundle.ViewEcoleLabel_themeEn}"/>
+                    <h:outputText value="#{ecoleController.selected.themeEn}" title="#{bundle.ViewEcoleTitle_themeEn}"/>
+                    <h:outputText value="#{bundle.ViewEcoleLabel_typeActivite}"/>
+                    <h:outputText value="#{ecoleController.selected.typeActivite}" title="#{bundle.ViewEcoleTitle_typeActivite}"/>
+                    <h:outputText value="#{bundle.ViewEcoleLabel_urlFr}"/>
+                    <h:outputText value="#{ecoleController.selected.urlFr}" title="#{bundle.ViewEcoleTitle_urlFr}"/>
+                    <h:outputText value="#{bundle.ViewEcoleLabel_urlEn}"/>
+                    <h:outputText value="#{ecoleController.selected.urlEn}" title="#{bundle.ViewEcoleTitle_urlEn}"/>
+                    <h:outputText value="#{bundle.ViewEcoleLabel_regionCimpaFr}"/>
+                    <h:outputText value="#{ecoleController.selected.regionCimpaFr}" title="#{bundle.ViewEcoleTitle_regionCimpaFr}"/>
+                    <h:outputText value="#{bundle.ViewEcoleLabel_regionCimpaEn}"/>
+                    <h:outputText value="#{ecoleController.selected.regionCimpaEn}" title="#{bundle.ViewEcoleTitle_regionCimpaEn}"/>
+                    <h:outputText value="#{bundle.ViewEcoleLabel_paiementFraisInscription}"/>
+                    <h:outputText value="#{ecoleController.selected.paiementFraisInscription}" title="#{bundle.ViewEcoleTitle_paiementFraisInscription}"/>
+                    <h:outputText value="#{bundle.ViewEcoleLabel_inscriptionOuverte}"/>
+                    <h:outputText value="#{ecoleController.selected.inscriptionOuverte}" title="#{bundle.ViewEcoleTitle_inscriptionOuverte}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{ecoleController.destroyAndView}" value="#{bundle.ViewEcoleDestroyLink}"/>
+                <br />
+                <br />
+                <h:commandLink action="Edit" value="#{bundle.ViewEcoleEditLink}"/>
+                <br />
+                <h:commandLink action="#{ecoleController.prepareCreate}" value="#{bundle.ViewEcoleCreateLink}" />
+                <br />
+                <h:commandLink action="#{ecoleController.prepareList}" value="#{bundle.ViewEcoleShowAllLink}"/>
+                <br />
+                <br />
+                <h:commandLink value="#{bundle.ViewEcoleIndexLink}" action="/index" immediate="true" />
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

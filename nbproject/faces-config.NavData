@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Scene Scope="Project" version="2">
+    <Scope Scope="Faces Configuration Only"/>
+    <Scope Scope="Project">
+        <Node id="candidatures/candidature0/View.xhtml" x="650" y="150" zoom="true"/>
+        <Node id="candidatures/candidature0/List_pf.xhtml" x="150" y="750" zoom="true"/>
+        <Node id="ecole/Edit.xhtml" x="900" y="600" zoom="true"/>
+        <Node id="ecole/List.xhtml" x="400" y="1050" zoom="true"/>
+        <Node id="candidatures/candidature0/List_pf_2.xhtml" x="650" y="450" zoom="true"/>
+        <Node id="noauth.html" x="650" y="600" zoom="true"/>
+        <Node id="candidatures/ecole/Edit.xhtml" x="1150" y="150" zoom="true"/>
+        <Node id="candidatures/candidature0/List.xhtml" x="150" y="300" zoom="true"/>
+        <Node id="ecole/Create.xhtml" x="1900" y="300" zoom="true"/>
+        <Node id="candidatures/personne/View.xhtml" x="1150" y="300" zoom="true"/>
+        <Node id="template.xhtml" x="400" y="300" zoom="true"/>
+        <Node id="login.html" x="400" y="600" zoom="true"/>
+        <Node id="personne/Bidon.xhtml" x="1900" y="150" zoom="true"/>
+        <Node id="candidatures/candidature0/List_test.xhtml" x="900" y="300" zoom="true"/>
+        <Node id="noauth.xhtml" x="400" y="750" zoom="true"/>
+        <Node id="candidatures/ecole/List.xhtml" x="900" y="150" zoom="true"/>
+        <Node id="ecole/View.xhtml" x="650" y="900" zoom="true"/>
+        <Node id="candidatures/ecole/View.xhtml" x="150" y="450" zoom="true"/>
+        <Node id="personneEcole/Create.xhtml" x="650" y="750" zoom="true"/>
+        <Node id="candidatures/candidature0/Listancien.xhtml" x="150" y="900" zoom="true"/>
+        <Node id="personne/List.xhtml" x="1400" y="450" zoom="true"/>
+        <Node id="erreur.xhtml" x="1650" y="150" zoom="true"/>
+        <Node id="personneEcole/View.xhtml" x="400" y="900" zoom="true"/>
+        <Node id="candidatures/ecole/Create.xhtml" x="1400" y="150" zoom="true"/>
+        <Node id="login.xhtml" x="1400" y="300" zoom="true"/>
+        <Node id="personne/Edit.xhtml" x="2150" y="150" zoom="true"/>
+        <Node id="personne/Edit_motdepasse.xhtml" x="1650" y="300" zoom="true"/>
+        <Node id="candidatures/personne/Create.xhtml" x="650" y="300" zoom="true"/>
+        <Node id="personne/Create.xhtml" x="150" y="1200" zoom="true"/>
+        <Node id="notfound.xhtml" x="1150" y="450" zoom="true"/>
+        <Node id="personne/View.xhtml" x="150" y="1050" zoom="true"/>
+        <Node id="index.xhtml" x="400" y="150" zoom="true"/>
+        <Node id="personneEcole/Edit.xhtml" x="900" y="750" zoom="true"/>
+        <Node id="candidatures/candidature0/Edit.xhtml" x="400" y="450" zoom="true"/>
+        <Node id="candidatures/candidature0/Create.xhtml" x="150" y="600" zoom="true"/>
+        <Node id="personneEcole/List.xhtml" x="1150" y="600" zoom="true"/>
+        <Node id="candidatures/personne/List.xhtml" x="900" y="450" zoom="true"/>
+        <Node id="candidatures/personne/Edit.xhtml" x="150" y="150" zoom="true"/>
+    </Scope>
+    <Scope Scope="All Faces Configurations"/>
+</Scene>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditEcoleTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditEcoleLabel_codeEcole}" for="codeEcole" />
+                    <h:inputText id="codeEcole" value="#{ecoleController.selected.codeEcole}" title="#{bundle.EditEcoleTitle_codeEcole}" required="true" requiredMessage="#{bundle.EditEcoleRequiredMessage_codeEcole}"/>
+                    <h:outputLabel value="#{bundle.EditEcoleLabel_nomFr}" for="nomFr" />
+                    <h:inputText id="nomFr" value="#{ecoleController.selected.nomFr}" title="#{bundle.EditEcoleTitle_nomFr}" required="true" requiredMessage="#{bundle.EditEcoleRequiredMessage_nomFr}"/>
+                    <h:outputLabel value="#{bundle.EditEcoleLabel_nomFrAbrege}" for="nomFrAbrege" />
+                    <h:inputText id="nomFrAbrege" value="#{ecoleController.selected.nomFrAbrege}" title="#{bundle.EditEcoleTitle_nomFrAbrege}" required="true" requiredMessage="#{bundle.EditEcoleRequiredMessage_nomFrAbrege}"/>
+                    <h:outputLabel value="#{bundle.EditEcoleLabel_nomEn}" for="nomEn" />
+                    <h:inputText id="nomEn" value="#{ecoleController.selected.nomEn}" title="#{bundle.EditEcoleTitle_nomEn}" required="true" requiredMessage="#{bundle.EditEcoleRequiredMessage_nomEn}"/>
+                    <h:outputLabel value="#{bundle.EditEcoleLabel_nomEnAbrege}" for="nomEnAbrege" />
+                    <h:inputText id="nomEnAbrege" value="#{ecoleController.selected.nomEnAbrege}" title="#{bundle.EditEcoleTitle_nomEnAbrege}" required="true" requiredMessage="#{bundle.EditEcoleRequiredMessage_nomEnAbrege}"/>
+                    <h:outputLabel value="#{bundle.EditEcoleLabel_anCimpa}" for="anCimpa" />
+                    <h:inputText id="anCimpa" value="#{ecoleController.selected.anCimpa}" title="#{bundle.EditEcoleTitle_anCimpa}" />
+                    <h:outputLabel value="#{bundle.EditEcoleLabel_paysFr}" for="paysFr" />
+                    <h:inputText id="paysFr" value="#{ecoleController.selected.paysFr}" title="#{bundle.EditEcoleTitle_paysFr}" />
+                    <h:outputLabel value="#{bundle.EditEcoleLabel_paysEn}" for="paysEn" />
+                    <h:inputText id="paysEn" value="#{ecoleController.selected.paysEn}" title="#{bundle.EditEcoleTitle_paysEn}" />
+                    <h:outputLabel value="#{bundle.EditEcoleLabel_regionFr}" for="regionFr" />
+                    <h:inputText id="regionFr" value="#{ecoleController.selected.regionFr}" title="#{bundle.EditEcoleTitle_regionFr}" />
+                    <h:outputLabel value="#{bundle.EditEcoleLabel_regionEn}" for="regionEn" />
+                    <h:inputText id="regionEn" value="#{ecoleController.selected.regionEn}" title="#{bundle.EditEcoleTitle_regionEn}" />
+                    <h:outputLabel value="#{bundle.EditEcoleLabel_themeFr}" for="themeFr" />
+                    <h:inputText id="themeFr" value="#{ecoleController.selected.themeFr}" title="#{bundle.EditEcoleTitle_themeFr}" />
+                    <h:outputLabel value="#{bundle.EditEcoleLabel_themeEn}" for="themeEn" />
+                    <h:inputText id="themeEn" value="#{ecoleController.selected.themeEn}" title="#{bundle.EditEcoleTitle_themeEn}" />
+                    <h:outputLabel value="#{bundle.EditEcoleLabel_typeActivite}" for="typeActivite" />
+                    <h:inputText id="typeActivite" value="#{ecoleController.selected.typeActivite}" title="#{bundle.EditEcoleTitle_typeActivite}" />
+                    <h:outputLabel value="#{bundle.EditEcoleLabel_urlFr}" for="urlFr" />
+                    <h:inputText id="urlFr" value="#{ecoleController.selected.urlFr}" title="#{bundle.EditEcoleTitle_urlFr}" />
+                    <h:outputLabel value="#{bundle.EditEcoleLabel_urlEn}" for="urlEn" />
+                    <h:inputText id="urlEn" value="#{ecoleController.selected.urlEn}" title="#{bundle.EditEcoleTitle_urlEn}" />
+                    <h:outputLabel value="#{bundle.EditEcoleLabel_regionCimpaFr}" for="regionCimpaFr" />
+                    <h:inputText id="regionCimpaFr" value="#{ecoleController.selected.regionCimpaFr}" title="#{bundle.EditEcoleTitle_regionCimpaFr}" />
+                    <h:outputLabel value="#{bundle.EditEcoleLabel_regionCimpaEn}" for="regionCimpaEn" />
+                    <h:inputText id="regionCimpaEn" value="#{ecoleController.selected.regionCimpaEn}" title="#{bundle.EditEcoleTitle_regionCimpaEn}" />
+                    <h:outputLabel value="#{bundle.EditEcoleLabel_paiementFraisInscription}" for="paiementFraisInscription" />
+                    <h:inputText id="paiementFraisInscription" value="#{ecoleController.selected.paiementFraisInscription}" title="#{bundle.EditEcoleTitle_paiementFraisInscription}" />
+                    <h:outputLabel value="#{bundle.EditEcoleLabel_inscriptionOuverte}" for="inscriptionOuverte" />
+                    <h:inputText id="inscriptionOuverte" value="#{ecoleController.selected.inscriptionOuverte}" title="#{bundle.EditEcoleTitle_inscriptionOuverte}" />
+                </h:panelGrid>
+                <h:commandLink action="#{ecoleController.update}" value="#{bundle.EditEcoleSaveLink}"/>
+                <br />
+                <br />
+                <h:commandLink action="View" value="#{bundle.EditEcoleViewLink}" immediate="true"/>
+                <br />
+                <h:commandLink action="#{ecoleController.prepareList}" value="#{bundle.EditEcoleShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:commandLink value="#{bundle.EditEcoleIndexLink}" action="/index" immediate="true" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

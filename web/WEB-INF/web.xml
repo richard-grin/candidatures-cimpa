@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.0" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+    <context-param>
+        <param-name>javax.faces.PROJECT_STAGE</param-name>
+        <param-value>Development</param-value>
+    </context-param>
+    <context-param>
+        <param-name>javax.faces.FACELETS_LIBRARIES</param-name>
+        <param-value>/WEB-INF/cimpa.taglib.xml</param-value>
+    </context-param>
+    <!-- pour contourner un bug ; à enlever par la suite :.
+    <context-param>
+        <param-name>javax.faces.FULL_STATE_SAVING_VIEW_IDS</param-name>
+        <param-value>/faces/candidatures/candidature0/List.xhtml;/faces/index.xhtml;</param-value>
+    </context-param>
+     fin du contournement du bug. -->
+    <servlet>
+        <servlet-name>Faces Servlet</servlet-name>
+        <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Faces Servlet</servlet-name>
+        <url-pattern>/faces/*</url-pattern>
+    </servlet-mapping>
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+    <welcome-file-list>
+        <welcome-file>faces/index.xhtml</welcome-file>
+    </welcome-file-list>
+    <error-page>
+        <exception-type>java.lang.Throwable</exception-type>
+        <location>/faces/erreur.xhtml</location>
+    </error-page>
+    <error-page>
+        <error-code>500</error-code>
+        <location>/faces/erreur.xhtml</location>
+    </error-page>
+    <error-page>
+        <error-code>404</error-code>
+        <location>/faces/notfound.xhtml</location>
+    </error-page>
+    <error-page>
+        <error-code>403</error-code>
+        <location>/faces/noauth.xhtml</location>
+    </error-page>
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>Protected Pages</web-resource-name>
+            <url-pattern>/faces/candidatures/*</url-pattern>
+            <url-pattern>/candidatures/*</url-pattern>
+            <!--<http-method>POST</http-method>
+            <http-method>GET</http-method>
+            <http-method>PUT</http-method>-->
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>responsable_ecole</role-name>
+            <role-name>admin</role-name>
+            <role-name>rsr</role-name>
+        </auth-constraint>
+    </security-constraint>
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>Gestion des personnes</web-resource-name>
+            <url-pattern>/faces/personne/*</url-pattern>
+            <url-pattern>/personne/*</url-pattern>
+            <!--<http-method>POST</http-method>
+            <http-method>GET</http-method>
+            <http-method>PUT</http-method>-->
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>admin</role-name>
+        </auth-constraint>
+    </security-constraint>
+    <login-config>
+        <auth-method>FORM</auth-method>
+        <realm-name>candidatures</realm-name>
+        <form-login-config>
+            <form-login-page>/faces/login.xhtml</form-login-page>
+            <form-error-page>/faces/badlogin.xhtml</form-error-page>
+        </form-login-config>
+    </login-config>
+    <security-role>
+        <description>Responsable d'une école du CIMPA</description>
+        <role-name>responsable_ecole</role-name>
+    </security-role>
+    <security-role>
+        <description>Administrateur des écoles du CIMPA</description>
+        <role-name>admin</role-name>
+    </security-role>
+    <security-role>
+        <description>Responsable Scientifique Régional du CIMPA</description>
+        <role-name>rsr</role-name>
+    </security-role>
+</web-app>

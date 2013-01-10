@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListEcoleTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+        <h:form styleClass="jsfcrud_list_form">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:outputText escape="false" value="#{bundle.ListEcoleEmpty}" rendered="#{ecoleController.items.rowCount == 0}"/>
+            <h:panelGroup rendered="#{ecoleController.items.rowCount > 0}">
+                <h:outputText value="#{ecoleController.pagination.pageFirstItem + 1}..#{ecoleController.pagination.pageLastItem + 1}/#{ecoleController.pagination.itemsCount}"/>&nbsp;
+                <h:commandLink action="#{ecoleController.previous}" value="#{bundle.Previous} #{ecoleController.pagination.pageSize}" rendered="#{ecoleController.pagination.hasPreviousPage}"/>&nbsp;
+                <h:commandLink action="#{ecoleController.next}" value="#{bundle.Next} #{ecoleController.pagination.pageSize}" rendered="#{ecoleController.pagination.hasNextPage}"/>&nbsp;
+                <h:dataTable value="#{ecoleController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListEcoleTitle_codeEcole}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.codeEcole}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListEcoleTitle_nomFr}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.nomFr}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListEcoleTitle_nomFrAbrege}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.nomFrAbrege}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListEcoleTitle_nomEn}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.nomEn}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListEcoleTitle_nomEnAbrege}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.nomEnAbrege}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListEcoleTitle_anCimpa}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.anCimpa}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListEcoleTitle_paysFr}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.paysFr}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListEcoleTitle_paysEn}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.paysEn}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListEcoleTitle_regionFr}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.regionFr}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListEcoleTitle_regionEn}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.regionEn}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListEcoleTitle_themeFr}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.themeFr}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListEcoleTitle_themeEn}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.themeEn}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListEcoleTitle_typeActivite}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.typeActivite}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListEcoleTitle_urlFr}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.urlFr}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListEcoleTitle_urlEn}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.urlEn}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListEcoleTitle_regionCimpaFr}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.regionCimpaFr}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListEcoleTitle_regionCimpaEn}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.regionCimpaEn}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListEcoleTitle_paiementFraisInscription}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.paiementFraisInscription}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListEcoleTitle_inscriptionOuverte}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.inscriptionOuverte}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="&nbsp;"/>
+                        </f:facet>
+                        <h:commandLink action="#{ecoleController.prepareView}" value="#{bundle.ListEcoleViewLink}"/>
+                        <h:outputText value=" "/>
+                        <h:commandLink action="#{ecoleController.prepareEdit}" value="#{bundle.ListEcoleEditLink}"/>
+                        <h:outputText value=" "/>
+                        <h:commandLink action="#{ecoleController.destroy}" value="#{bundle.ListEcoleDestroyLink}"/>
+                    </h:column>
+                </h:dataTable>
+            </h:panelGroup>
+            <br />
+            <h:commandLink action="#{ecoleController.prepareCreate}" value="#{bundle.ListEcoleCreateLink}"/>
+            <br />
+            <br />
+            <h:commandLink value="#{bundle.ListEcoleIndexLink}" action="/index" immediate="true" />
+        </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

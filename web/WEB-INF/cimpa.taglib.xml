@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Document   : cimpa.taglib.xml.xml
+    Created on : 21 novembre 2010, 12:10
+    Author     : richard
+    Description:
+        Fichier de description de la balise cimpa:exportExcel.
+-->
+
+<facelet-taglib version="2.0"
+   xmlns="http://java.sun.com/xml/ns/javaee"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facelettaglibary_2_0.xsd">
+  <namespace>http://cimpa.org</namespace>
+  <tag>
+    <tag-name>binary</tag-name>
+    <component>
+      <component-type>javax.faces.Output</component-type>
+      <renderer-type>org.cimpa.BinaryRenderer</renderer-type>
+    </component>
+  </tag>
+</facelet-taglib>
